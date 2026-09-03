@@ -1,12 +1,4 @@
-require 'json'
-
-# Основной класс фильтрации
-class ProviderFilter
-  # На вход: массив провайдеров и хэш операции (amount, bank)
-  # На выход: [массив подходящих провайдеров, хэш причин исключений]
-  def self.filter(providers, operation)
-    eligible = []
-    skip_reasons = {# src/filter.rb
+# src/filter.rb
 # Класс для фильтрации провайдеров по hard-constraints.
 # Принимает массив провайдеров (в формате providers.json) и параметры операции.
 # Возвращает [массив допустимых провайдеров, хэш причин исключений].
@@ -20,14 +12,45 @@ class ProviderFilter
       reasons = []
       ok = true
 
-      ok = false unless check_status(provider)         && (reasons << 'status_not_active')
-      ok = false unless check_amount_limits(provider, operation['amount']) && (reasons << 'amount_out_of_range')
-      ok = false unless check_daily_limit(provider, operation['amount'])   && (reasons << 'daily_limit_exceeded')
-      ok = false unless check_in_progress_count(provider)                  && (reasons << 'in_progress_count_exceeded')
-      ok = false unless check_in_progress_amount(provider, operation['amount']) && (reasons << 'in_progress_amount_exceeded')
-      ok = false unless check_bank(provider, operation['bank'])            && (reasons << 'bank_not_in_list')
-      ok = false unless check_margin(provider)                             && (reasons << 'margin_exceeds')
-      ok = false unless check_requisites(provider)                         && (reasons << 'no_requisites')
+      unless check_status(provider)
+        ok = false
+        reasons << 'status_not_active'
+      end
+
+      unless check_amount_limits(provider, operation['amount'])
+        ok = false
+        reasons << 'amount_out_of_range'
+      end
+
+      unless check_daily_limit(provider, operation['amount'])
+        ok = false
+        reasons << 'daily_limit_exceeded'
+      end
+
+      unless check_in_progress_count(provider)
+        ok = false
+        reasons << 'in_progress_count_exceeded'
+      end
+
+      unless check_in_progress_amount(provider, operation['amount'])
+        ok = false
+        reasons << 'in_progress_amount_exceeded'
+      end
+
+      unless check_bank(provider, operation['bank'])
+        ok = false
+        reasons << 'bank_not_in_list'
+      end
+
+      unless check_margin(provider)
+        ok = false
+        reasons << 'margin_exceeds'
+      end
+
+      unless check_requisites(provider)
+        ok = false
+        reasons << 'no_requisites'
+      end
 
       if ok
         eligible << provider
