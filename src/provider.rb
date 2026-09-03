@@ -8,7 +8,8 @@ class Provider
               :daily_turnover_min, :daily_turnover_max, :avg_latency_sec,
               :allow_negative_agreement
 
-  attr_accessor :daily_approved_amount, :in_progress_count, :in_progress_amount
+  attr_accessor :daily_approved_amount, :daily_approved_count,
+                :in_progress_count, :in_progress_amount
 
   def initialize(attrs = {})
     attrs = attrs.transform_keys(&:to_s)
@@ -22,6 +23,7 @@ class Provider
     @limit_amount_max = attrs['limit_amount_max'] ? attrs['limit_amount_max'].to_f : Float::INFINITY
     @daily_amount_limit = attrs['daily_amount_limit'] ? attrs['daily_amount_limit'].to_f : Float::INFINITY
     @daily_approved_amount = attrs['daily_approved_amount'].to_f
+    @daily_approved_count = attrs['daily_approved_count'].to_i
     @in_progress_count_limit = attrs['in_progress_count_limit'] ? attrs['in_progress_count_limit'].to_i : Float::INFINITY
     @in_progress_count = attrs['in_progress_count'].to_i
     @in_progress_amount_limit = attrs['in_progress_amount_limit'] ? attrs['in_progress_amount_limit'].to_f : Float::INFINITY
@@ -38,7 +40,7 @@ class Provider
     @daily_turnover_max = attrs['daily_turnover_max'] ? attrs['daily_turnover_max'].to_f : Float::INFINITY
     @avg_latency_sec = attrs['avg_latency_sec'].to_i
 
-    @allow_negative_agreement = 
+    @allow_negative_agreement =
       case attrs['allow_negative_agreement']
       when true, 'true', 1, '1' then true
       else false
@@ -58,6 +60,7 @@ class Provider
       'limit_amount_max' => @limit_amount_max,
       'daily_amount_limit' => @daily_amount_limit,
       'daily_approved_amount' => @daily_approved_amount,
+      'daily_approved_count' => @daily_approved_count,
       'in_progress_count_limit' => @in_progress_count_limit,
       'in_progress_count' => @in_progress_count,
       'in_progress_amount_limit' => @in_progress_amount_limit,
@@ -84,18 +87,22 @@ class Provider
   end
 
   def finish_operation(amount, approved:)
-    # Защита от отрицательных значений
     @in_progress_count = [@in_progress_count - 1, 0].max
     @in_progress_amount = [@in_progress_amount - amount, 0.0].max
-    @daily_approved_amount += amount if approved
+
+    if approved
+      @daily_approved_amount += amount
+      @daily_approved_count += 1
+    end
   end
 
   def reset_daily_metrics
     if @in_progress_count > 0 || @in_progress_amount > 0
-      warn "Cannot reset daily metrics while operations are in progress for #{@payment_system}"
+      warn "Cannot reset daily metrics for #{@payment_system} – operations in progress"
       return
     end
     @daily_approved_amount = 0.0
+    @daily_approved_count = 0
     @in_progress_count = 0
     @in_progress_amount = 0.0
     @request_timestamps.clear
@@ -127,6 +134,6 @@ class Provider
   end
 
   def to_s
-    "Provider #{@payment_system} (status=#{@status}, daily=#{@daily_approved_amount}/#{@daily_amount_limit})"
+    "Provider #{@payment_system} (status=#{@status}, daily_amount=#{@daily_approved_amount}/#{@daily_amount_limit}, daily_count=#{@daily_approved_count})"
   end
 end
