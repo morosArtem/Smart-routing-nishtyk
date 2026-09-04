@@ -1,55 +1,67 @@
 # src/router.rb
 # Основной цикл обработки очереди, fallback и генерация attempts.
-# Использует ProviderFilter для hard-constraints.
+# Использует ProviderFilter для hard-constraints и SoftFilter для ранжирования.
 
-require_relative 'filter'   # ваш класс ProviderFilter
+require_relative 'filter'
+require_relative 'provider'
+require_relative 'soft_filter'
 
 class Router
   # Основной метод: обрабатывает все операции и возвращает массив решений
-  # Параметры:
-  #   providers - массив хэшей с данными провайдеров (уже загружен)
-  #   queue     - массив хэшей с операциями (уже загружен)
-  # Возвращает: массив решений в формате sample_routing_decisions.json
-  def self.process_queue(providers, queue)
+  def self.process_queue(providers_data, queue, weights = {})
+    # Преобразуем хэши в объекты Provider
+    providers = providers_data.map { |p| p.is_a?(Provider) ? p : Provider.new(p) }
     decisions = []
 
+    # Глобальная статистика для soft-стратегий
+    global_stats = {
+      total_approved_count: providers.sum { |p| p.daily_approved_count },
+      total_approved_amount: providers.sum { |p| p.daily_approved_amount }
+    }
+
     queue.each do |operation|
-      # Шаг 1: фильтрация (hard-constraints) – используем ваш класс
-      eligible, skip_reasons = ProviderFilter.filter(providers, operation)
+      # Шаг 1: фильтрация (hard-constraints) – используем метод can_handle? из класса Provider
+      eligible, skip_reasons = filter_providers(providers, operation)
 
       # Шаг 2: если eligible пуст, используем fallback (spacepayments)
       if eligible.empty?
-        # Ищем провайдера spacepayments
-        fallback = providers.find { |p| p['payment_system'] == 'spacepayments' }
+        fallback = providers.find { |p| p.payment_system == 'spacepayments' }
         if fallback
-          # Принудительно добавляем fallback как единственного eligible
           eligible = [fallback]
-          # Примечание: skip_reasons уже содержит причины для остальных провайдеров
+          # Добавляем причину, что использован fallback
+          skip_reasons['spacepayments'] = [] unless skip_reasons.key?('spacepayments')
         else
-          # Если даже fallback нет – пропускаем операцию (или выбрасываем ошибку)
           puts "WARNING: No eligible provider and no fallback for operation #{operation['operation_id']}"
           next
         end
       end
 
-      # Шаг 3: выбор провайдера по простой стратегии – минимальный priority
-      # (можно заменить на более сложную, но это уже задача напарника)
-      selected = select_provider(eligible)
+      # Шаг 3: выбор провайдера по soft-стратегии (используем SoftFilter)
+      selected = SoftFilter.best_provider(eligible, operation, weights, global_stats)
+      
+      # Если SoftFilter вернул nil (маловероятно, но на всякий случай)
+      if selected.nil?
+        selected = eligible.first
+      end
 
-      # Шаг 4: обновление состояния выбранного провайдера (для учёта лимитов в следующих операциях)
+      # Шаг 4: обновление состояния выбранного провайдера (используем методы класса Provider)
       update_provider_state(selected, operation['amount'])
+
+      # Обновляем глобальную статистику
+      global_stats[:total_approved_count] += 1
+      global_stats[:total_approved_amount] += operation['amount'].to_f
 
       # Шаг 5: генерация attempts для всех провайдеров
       attempts = build_attempts(providers, operation, selected, skip_reasons)
 
       # Шаг 6: симуляция результата на основе conversion_24h
       simulated_result = simulate_result(selected)
-      latency_sec = selected['avg_latency_sec'] || 30   # дефолт, если нет значения
+      latency_sec = selected.avg_latency_sec || 30
 
       # Формируем решение для этой операции
       decision = {
         'operation_id' => operation['operation_id'],
-        'selected_provider' => selected['payment_system'],
+        'selected_provider' => selected.payment_system,
         'attempts' => attempts,
         'simulated_result' => simulated_result,
         'latency_sec' => latency_sec
@@ -61,49 +73,70 @@ class Router
     decisions
   end
 
-  # ----- Вспомогательные методы (только то, что нужно для цикла) -----
+  # ----- Вспомогательные методы -----
 
-  # Простая стратегия выбора: провайдер с наименьшим priority (чем меньше число, тем выше приоритет)
-  # Если priority не задан, считаем его бесконечностью.
-  def self.select_provider(eligible)
-    eligible.min_by { |p| p['priority'] || Float::INFINITY }
+  # Фильтрация провайдеров (hard-constraints) через метод can_handle?
+  def self.filter_providers(providers, operation)
+    eligible = []
+    skip_reasons = {}
+
+    providers.each do |provider|
+      if provider.can_handle?(operation['amount'], bank: operation['bank'])
+        eligible << provider
+      else
+        # Собираем причины отказа
+        reasons = []
+        reasons << 'status_not_active' if provider.status != 'active'
+        reasons << 'amount_out_of_range' if operation['amount'] < provider.limit_amount_min || operation['amount'] > provider.limit_amount_max
+        reasons << 'daily_limit_exceeded' if provider.daily_approved_amount + operation['amount'] > provider.daily_amount_limit
+        reasons << 'in_progress_count_exceeded' if provider.in_progress_count >= provider.in_progress_count_limit
+        reasons << 'in_progress_amount_exceeded' if provider.in_progress_amount + operation['amount'] > provider.in_progress_amount_limit
+        reasons << 'bank_not_in_list' if !provider.banks.empty? && !provider.banks.include?(operation['bank'])
+        reasons << 'margin_exceeds' if !provider.allow_negative_agreement && provider.provider_margin_pct > provider.merchant_margin_pct
+        reasons << 'no_requisites' if provider.available_requisites <= 0
+        
+        # Если причина не определена, ставим общую
+        reasons << 'unknown' if reasons.empty?
+        
+        skip_reasons[provider.payment_system] = reasons
+      end
+    end
+
+    [eligible, skip_reasons]
   end
 
-  # Обновление состояния провайдера после выбора (увеличиваем счётчики)
+  # Обновление состояния провайдера через методы класса Provider
   def self.update_provider_state(provider, amount)
-    provider['daily_approved_amount'] = provider['daily_approved_amount'].to_f + amount
-    provider['in_progress_count'] = provider['in_progress_count'].to_i + 1
-    provider['in_progress_amount'] = provider['in_progress_amount'].to_f + amount
+    provider.start_operation(amount)
+    # Симулируем успешное завершение (в реальности здесь был бы ответ от провайдера)
+    provider.finish_operation(amount, approved: true)
   end
 
   # Генерация массива attempts для всех провайдеров
   def self.build_attempts(providers, operation, selected, skip_reasons)
     attempts = []
     providers.each do |provider|
-      ps = provider['payment_system']
+      ps = provider.payment_system
       if skip_reasons.key?(ps)
-        # Провайдер был исключён на этапе фильтрации
         reasons = skip_reasons[ps]
         attempts << {
           'provider' => ps,
           'decision' => 'skipped',
-          'reason' => reasons.first,          # берём первую причину как основную
-          'details' => reasons.join(', ')     # все причины для подробности
+          'reason' => reasons.first,
+          'details' => reasons.join(', ')
         }
-      elsif ps == selected['payment_system']
-        # Это выбранный провайдер
+      elsif ps == selected.payment_system
         attempts << {
           'provider' => ps,
           'decision' => 'selected',
           'reason' => 'best_by_strategy'
         }
       else
-        # Провайдер прошёл фильтр, но не был выбран (например, более низкий приоритет)
         attempts << {
           'provider' => ps,
           'decision' => 'skipped',
           'reason' => 'lower_priority',
-          'details' => "priority #{provider['priority']} vs selected #{selected['priority']}"
+          'details' => "not selected by soft strategy"
         }
       end
     end
@@ -112,7 +145,7 @@ class Router
 
   # Симуляция результата на основе conversion_24h
   def self.simulate_result(provider)
-    conversion = provider['conversion_24h'].to_f
+    conversion = provider.conversion_24h.to_f
     rand < conversion ? 'approved' : 'rejected'
   end
 end

@@ -1,3 +1,6 @@
+# src/provider.rb
+# Класс, представляющий платёжного провайдера с состоянием и методами для проверки и обновления.
+
 class Provider
   attr_reader :id, :payment_system, :status, :traffic_percentage, :volume_share_pct,
               :limit_amount_min, :limit_amount_max, :daily_amount_limit,
@@ -18,8 +21,8 @@ class Provider
     @payment_system = attrs['payment_system'] || attrs['id']
     @status = attrs['status'] || 'active'
     @traffic_percentage = attrs['traffic_percentage'].to_f
-    @volume_share_pct = attrs['volume_share_pct'].to_f
-    @limit_amount_min = attrs['limit_amount_min'].to_f
+    @volume_share_pct = attrs['volume_share_pct'] ? attrs['volume_share_pct'].to_f : 0.0
+    @limit_amount_min = attrs['limit_amount_min'] ? attrs['limit_amount_min'].to_f : 0.0
     @limit_amount_max = attrs['limit_amount_max'] ? attrs['limit_amount_max'].to_f : Float::INFINITY
     @daily_amount_limit = attrs['daily_amount_limit'] ? attrs['daily_amount_limit'].to_f : Float::INFINITY
     @daily_approved_amount = attrs['daily_approved_amount'].to_f
@@ -30,15 +33,16 @@ class Provider
     @in_progress_amount = attrs['in_progress_amount'].to_f
     @available_requisites = attrs['available_requisites'].to_i
     @banks = attrs['banks'] || []
-    @exclude_banks = attrs['exclude_banks'] || []
+    # Исправление: exclude_banks — булево значение
+    @exclude_banks = !!attrs['exclude_banks']
     @conversion_24h = attrs['conversion_24h'].to_f
     @provider_margin_pct = attrs['provider_margin_pct'].to_f
     @merchant_margin_pct = attrs['merchant_margin_pct'].to_f
-    @priority = attrs['priority'].to_i
+    @priority = attrs['priority'] ? attrs['priority'].to_i : 999
     @requests_per_minute_limit = attrs['requests_per_minute_limit'] ? attrs['requests_per_minute_limit'].to_i : Float::INFINITY
-    @daily_turnover_min = attrs['daily_turnover_min'].to_f
+    @daily_turnover_min = attrs['daily_turnover_min'] ? attrs['daily_turnover_min'].to_f : 0.0
     @daily_turnover_max = attrs['daily_turnover_max'] ? attrs['daily_turnover_max'].to_f : Float::INFINITY
-    @avg_latency_sec = attrs['avg_latency_sec'].to_i
+    @avg_latency_sec = attrs['avg_latency_sec'] ? attrs['avg_latency_sec'].to_i : 30
 
     @allow_negative_agreement =
       case attrs['allow_negative_agreement']
@@ -80,12 +84,14 @@ class Provider
     }
   end
 
+  # Начало обработки операции (увеличиваем счётчики in-progress)
   def start_operation(amount)
     @in_progress_count += 1
     @in_progress_amount += amount
     @request_timestamps << Time.now.to_i
   end
 
+  # Завершение операции (уменьшаем in-progress и обновляем дневные метрики)
   def finish_operation(amount, approved:)
     @in_progress_count = [@in_progress_count - 1, 0].max
     @in_progress_amount = [@in_progress_amount - amount, 0.0].max
@@ -96,6 +102,7 @@ class Provider
     end
   end
 
+  # Сброс дневных метрик (для тестов)
   def reset_daily_metrics
     if @in_progress_count > 0 || @in_progress_amount > 0
       warn "Cannot reset daily metrics for #{@payment_system} – operations in progress"
@@ -108,17 +115,20 @@ class Provider
     @request_timestamps.clear
   end
 
+  # Проверка превышения лимита интенсивности (запросов в минуту)
   def rate_limit_exceeded?
     now = Time.now.to_i
     @request_timestamps.reject! { |t| now - t > 60 }
     @request_timestamps.size >= @requests_per_minute_limit
   end
 
+  # Расчёт загрузки дневного лимита (в процентах)
   def daily_utilization_pct
     return 0 if @daily_amount_limit == Float::INFINITY
     (@daily_approved_amount / @daily_amount_limit * 100).round(2)
   end
 
+  # Основной метод проверки hard-constraints (эквивалент filter.rb)
   def can_handle?(amount, bank: nil)
     return false unless @status == 'active'
     return false if amount < @limit_amount_min || amount > @limit_amount_max
@@ -127,9 +137,21 @@ class Provider
     return false if @in_progress_amount + amount > @in_progress_amount_limit
     return false if @available_requisites <= 0
     return false if rate_limit_exceeded?
-    return false if bank && !@banks.empty? && !@banks.include?(bank)
-    return false if bank && @exclude_banks.include?(bank)
     return false if !@allow_negative_agreement && @provider_margin_pct > @merchant_margin_pct
+
+    # Проверка банковского фильтра
+    if bank
+      if @banks.any?
+        if @exclude_banks
+          # Если exclude_banks == true, то bank НЕ должен входить в список исключаемых
+          return false if @banks.include?(bank)
+        else
+          # Иначе bank должен входить в список разрешённых
+          return false unless @banks.include?(bank)
+        end
+      end
+    end
+
     true
   end
 
