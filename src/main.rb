@@ -2,7 +2,7 @@
 # Точка входа: загружает данные, запускает роутинг, сохраняет результат.
 
 require 'json'
-require_relative 'router'
+require_relative 'routing'
 require_relative 'provider'
 
 # Пути к файлам (можно передать аргументами)

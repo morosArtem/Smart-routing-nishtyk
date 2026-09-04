@@ -1,23 +1,25 @@
 require_relative 'provider'
 
 class SoftFilter
-  # Веса по умолчанию – можно переопределить при вызове
   DEFAULT_STRATEGY_WEIGHTS = {
-    traffic: 0.25,       # отклонение по количеству
-    volume: 0.25,        # отклонение по объёму
-    conversion: 0.15,    # конверсия
-    priority: 0.10,      # приоритет (инвертированный)
-    turnover_min: 0.10,  # недобор минимального оборота
-    turnover_max: 0.05,  # превышение максимального оборота (штраф)
-    utilization: 0.10    # загрузка дневного лимита (штраф)
+    traffic: 0.25,
+    volume: 0.25,
+    conversion: 0.15,
+    priority: 0.10,
+    turnover_min: 0.10,
+    turnover_max: 0.05,
+    utilization: 0.10
   }.freeze
 
   def self.score_providers(providers, operation, weights = {}, global_stats = {})
     weights = DEFAULT_STRATEGY_WEIGHTS.merge(weights.transform_keys(&:to_sym))
     amount = operation['amount'].to_f
 
+    # Защита от деления на ноль
     total_count = global_stats[:total_approved_count] || 1
     total_amount = global_stats[:total_approved_amount] || 1.0
+    total_count = 1 if total_count == 0
+    total_amount = 1.0 if total_amount == 0.0
 
     providers.map do |provider|
       p = provider.is_a?(Provider) ? provider : Provider.new(provider)
@@ -27,19 +29,17 @@ class SoftFilter
       if weights[:traffic] > 0
         target = p.traffic_percentage / 100.0
         current = p.daily_approved_count.to_f / total_count
-        deviation = target - current
-        norm_dev = [[deviation, -1.0].max, 1.0].min
-        score += norm_dev * weights[:traffic]
-        details[:traffic] = { target: target, current: current, deviation: norm_dev }
+        deviation = (target - current).clamp(-1, 1)
+        score += deviation * weights[:traffic]
+        details[:traffic] = { target: target, current: current, deviation: deviation }
       end
 
       if weights[:volume] > 0
         target = p.volume_share_pct / 100.0
         current = p.daily_approved_amount / total_amount
-        deviation = target - current
-        norm_dev = [[deviation, -1.0].max, 1.0].min
-        score += norm_dev * weights[:volume]
-        details[:volume] = { target: target, current: current, deviation: norm_dev }
+        deviation = (target - current).clamp(-1, 1)
+        score += deviation * weights[:volume]
+        details[:volume] = { target: target, current: current, deviation: deviation }
       end
 
       if weights[:conversion] > 0
@@ -78,7 +78,7 @@ class SoftFilter
 
       if weights[:utilization] > 0 && p.daily_amount_limit < Float::INFINITY
         projected_util = (p.daily_approved_amount + amount) / p.daily_amount_limit
-        projected_util = [[projected_util, 0.0].max, 1.0].min
+        projected_util = projected_util.clamp(0, 1)
         penalty = projected_util ** 2
         score -= penalty * weights[:utilization]
         details[:utilization] = { limit: p.daily_amount_limit, projected_util: projected_util, penalty: penalty }
