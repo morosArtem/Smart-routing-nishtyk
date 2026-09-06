@@ -14,13 +14,15 @@ module Config
   DECISIONS_PATH = File.join(OUTPUT_DIR, 'routing_decisions_test.json')
   REPORT_PATH = File.join(OUTPUT_DIR, 'routing_report_test.json')
 
-  # Настройки по умолчанию для весов (если история пуста)
+  # Полный набор весов по умолчанию (используется, если история пуста)
   DEFAULT_WEIGHTS = {
-    traffic: 0.25,
-    volume: 0.25,
+    traffic: 0.20,
+    volume: 0.20,
     conversion: 0.20,
     priority: 0.10,
     turnover_min: 0.10,
-    turnover_max: 0.10
+    turnover_max: 0.10,
+    amount_fit: 0.05,
+    current_load: 0.05
   }.freeze
 end

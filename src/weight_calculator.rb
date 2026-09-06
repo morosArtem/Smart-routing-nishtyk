@@ -5,7 +5,7 @@ module WeightCalculator
   extend self
 
   def compute(history, providers_data)
-    # Если история пуста – возвращаем базовые веса
+    # Если история пуста – возвращаем полный набор из конфига
     return Config::DEFAULT_WEIGHTS.dup if history.empty?
 
     # --- Анализ конверсий ---
@@ -15,9 +15,9 @@ module WeightCalculator
 
     conversion_weight = 0.20
     if avg_conversion && avg_conversion > 0.85
-      conversion_weight = 0.10          # все провайдеры надёжны – снижаем важность
+      conversion_weight = 0.10
     elsif std_dev && std_dev > 0.15
-      conversion_weight = 0.30          # большой разброс – повышаем важность
+      conversion_weight = 0.30
     end
 
     # --- Анализ отклонения долей ---
@@ -34,9 +34,9 @@ module WeightCalculator
 
     traffic_volume_weight = 0.20
     if avg_deviation > 0.10
-      traffic_volume_weight = 0.30      # большие отклонения – активнее корректируем
+      traffic_volume_weight = 0.30
     elsif avg_deviation < 0.03
-      traffic_volume_weight = 0.15      # уже близко – ослабляем
+      traffic_volume_weight = 0.15
     end
 
     priority_weight = 0.10
@@ -58,4 +58,4 @@ module WeightCalculator
       current_load: current_load_weight
     }
   end
-end
+end 

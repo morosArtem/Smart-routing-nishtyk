@@ -2,7 +2,6 @@
 # Основной цикл обработки очереди, fallback и генерация attempts.
 # Использует ProviderFilter для hard-constraints и SoftFilter для ранжирования.
 
-require_relative 'filter'
 require_relative 'provider'
 require_relative 'soft_filter'
 
@@ -177,7 +176,6 @@ class Router
       ps = provider.payment_system
       if skip_reasons.key?(ps)
         reasons = skip_reasons[ps]
-        # Берём первую причину как основную, а все остальные в details
         first_reason = reasons.first
         details = reasons.join('; ')
         attempts << {

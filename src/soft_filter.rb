@@ -1,19 +1,11 @@
 require_relative 'provider'
+require_relative 'config'
 
 class SoftFilter
-  DEFAULT_STRATEGY_WEIGHTS = {
-    traffic: 0.20,
-    volume: 0.20,
-    conversion: 0.20,
-    priority: 0.10,
-    turnover_min: 0.10,
-    turnover_max: 0.10,
-    amount_fit: 0.05,
-    current_load: 0.05
-  }.freeze
-
   def self.score_providers(providers, operation, weights = {}, global_stats = {})
-    weights = DEFAULT_STRATEGY_WEIGHTS.merge(weights.transform_keys(&:to_sym))
+    # Берём базовые веса из конфига и сливаем с переданными
+    base_weights = Config::DEFAULT_WEIGHTS.dup
+    weights = base_weights.merge(weights.transform_keys(&:to_sym))
     amount = operation['amount'].to_f
 
     total_count = global_stats[:total_approved_count] || 1
@@ -76,7 +68,7 @@ class SoftFilter
         end
       end
 
-      # --- Новый фактор: насколько сумма близка к центру диапазона провайдера ---
+      # amount_fit
       if weights[:amount_fit] > 0
         min = p.limit_amount_min
         max = p.limit_amount_max
@@ -92,7 +84,7 @@ class SoftFilter
         end
       end
 
-      # --- Новый фактор: штраф за высокую текущую загрузку (in-progress) ---
+      # current_load
       if weights[:current_load] > 0
         in_progress = p.in_progress_count
         limit = p.in_progress_count_limit
