@@ -33,7 +33,6 @@ class Provider
     @in_progress_amount = attrs['in_progress_amount'].to_f
     @available_requisites = attrs['available_requisites'].to_i
     @banks = attrs['banks'] || []
-    # Исправление: exclude_banks — булево значение
     @exclude_banks = !!attrs['exclude_banks']
     @conversion_24h = attrs['conversion_24h'].to_f
     @provider_margin_pct = attrs['provider_margin_pct'].to_f
@@ -84,25 +83,21 @@ class Provider
     }
   end
 
-  # Начало обработки операции (увеличиваем счётчики in-progress)
   def start_operation(amount)
     @in_progress_count += 1
     @in_progress_amount += amount
     @request_timestamps << Time.now.to_i
   end
 
-  # Завершение операции (уменьшаем in-progress и обновляем дневные метрики)
   def finish_operation(amount, approved:)
     @in_progress_count = [@in_progress_count - 1, 0].max
     @in_progress_amount = [@in_progress_amount - amount, 0.0].max
-
     if approved
       @daily_approved_amount += amount
       @daily_approved_count += 1
     end
   end
 
-  # Сброс дневных метрик (для тестов)
   def reset_daily_metrics
     if @in_progress_count > 0 || @in_progress_amount > 0
       warn "Cannot reset daily metrics for #{@payment_system} – operations in progress"
@@ -115,22 +110,26 @@ class Provider
     @request_timestamps.clear
   end
 
-  # Проверка превышения лимита интенсивности (запросов в минуту)
   def rate_limit_exceeded?
     now = Time.now.to_i
     @request_timestamps.reject! { |t| now - t > 60 }
     @request_timestamps.size >= @requests_per_minute_limit
   end
 
-  # Расчёт загрузки дневного лимита (в процентах)
   def daily_utilization_pct
     return 0 if @daily_amount_limit == Float::INFINITY
     (@daily_approved_amount / @daily_amount_limit * 100).round(2)
   end
 
-  # Основной метод проверки hard-constraints (эквивалент filter.rb)
+  # Основной метод проверки hard-constraints с защитой от отрицательных лимитов
   def can_handle?(amount, bank: nil)
     return false unless @status == 'active'
+    # Защита от отрицательных лимитов
+    return false if @limit_amount_max < 0 || @limit_amount_min < 0
+    return false if @daily_amount_limit < 0
+    return false if @in_progress_count_limit < 0
+    return false if @in_progress_amount_limit < 0
+
     return false if amount < @limit_amount_min || amount > @limit_amount_max
     return false if @daily_approved_amount + amount > @daily_amount_limit
     return false if @in_progress_count >= @in_progress_count_limit
@@ -139,14 +138,11 @@ class Provider
     return false if rate_limit_exceeded?
     return false if !@allow_negative_agreement && @provider_margin_pct > @merchant_margin_pct
 
-    # Проверка банковского фильтра
     if bank
       if @banks.any?
         if @exclude_banks
-          # Если exclude_banks == true, то bank НЕ должен входить в список исключаемых
           return false if @banks.include?(bank)
         else
-          # Иначе bank должен входить в список разрешённых
           return false unless @banks.include?(bank)
         end
       end
