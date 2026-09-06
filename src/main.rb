@@ -6,6 +6,7 @@ require_relative 'weight_calculator'
 require_relative 'report_builder'
 require_relative 'routing'
 require_relative 'provider'
+require_relative 'interactive'
 
 # Загрузка данных
 data = DataLoader.load
@@ -22,9 +23,16 @@ unless data[:history].empty?
   end
 end
 
-# Вычисление динамических весов
-weights = WeightCalculator.compute(data[:history], data[:providers_data])
-puts "✅ Динамические веса: #{weights}"
+# Получение весов (автоматические или ручные)
+weights_choice = Interactive.get_weights(Config::DEFAULT_WEIGHTS)
+
+if weights_choice == :auto
+  weights = WeightCalculator.compute(data[:history], data[:providers_data])
+  puts "✅ Используются динамические веса: #{weights}"
+else
+  weights = weights_choice
+  puts "✅ Используются ручные веса: #{weights}"
+end
 
 # Создание объектов Provider
 providers = data[:providers_data].map { |p| Provider.new(p) }

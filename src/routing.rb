@@ -50,8 +50,9 @@ class Router
         end
       end
 
-      selected = SoftFilter.best_provider(eligible, operation, weights, global_stats)
-      selected ||= eligible.first
+      # Получаем оценки для всех провайдеров, прошедших hard-фильтр
+      scored = SoftFilter.score_providers(eligible, operation, weights, global_stats)
+      selected = scored.first[:provider]
 
       # Симулируем результат и обновляем состояние
       simulated_result = simulate_result(selected)
@@ -61,7 +62,8 @@ class Router
       global_stats[:total_approved_count] += 1
       global_stats[:total_approved_amount] += operation['amount'].to_f
 
-      attempts = build_attempts(providers, operation, selected, skip_reasons)
+      # Генерируем attempts с детальными причинами, используя scored
+      attempts = build_attempts(providers, operation, selected, skip_reasons, scored)
       latency_sec = selected.avg_latency_sec || 30
 
       decision = {
@@ -170,37 +172,108 @@ class Router
     [eligible, skip_reasons]
   end
 
-  def self.build_attempts(providers, operation, selected, skip_reasons)
-    attempts = []
-    providers.each do |provider|
-      ps = provider.payment_system
-      if skip_reasons.key?(ps)
-        reasons = skip_reasons[ps]
-        first_reason = reasons.first
-        details = reasons.join('; ')
+  def self.build_attempts(providers, operation, selected, skip_reasons, scored)
+  attempts = []
+  providers.each do |provider|
+    ps = provider.payment_system
+    if skip_reasons.key?(ps)
+      # Провайдер исключён на этапе hard-фильтрации
+      reasons = skip_reasons[ps]
+      first_reason = reasons.first
+      details = reasons.join('; ')
+      attempts << {
+        'provider' => ps,
+        'decision' => 'skipped',
+        'reason' => first_reason,
+        'details' => details
+      }
+    elsif ps == selected.payment_system
+      attempts << {
+        'provider' => ps,
+        'decision' => 'selected',
+        'reason' => 'best_by_strategy'
+      }
+    else
+      # Провайдер прошёл hard-фильтр, но не выбран soft-стратегией
+      scored_entry = scored.find { |item| item[:provider].payment_system == ps }
+      if scored_entry
+        score = scored_entry[:score]
+        selected_score = scored.first[:score]
+        details_hash = scored_entry[:details]
+
+        # Формируем объяснение, почему оценка низкая
+        explanation_parts = []
+        # Анализируем каждый фактор
+        if details_hash[:traffic]
+          dev = details_hash[:traffic][:deviation]
+          if dev < 0
+            explanation_parts << "недобор доли трафика (#{(dev * 100).round(1)}%)"
+          end
+        end
+        if details_hash[:volume]
+          dev = details_hash[:volume][:deviation]
+          if dev < 0
+            explanation_parts << "недобор доли объёма (#{(dev * 100).round(1)}%)"
+          end
+        end
+        if details_hash[:conversion]
+          conv = details_hash[:conversion]
+          if conv < 0.7
+            explanation_parts << "низкая конверсия (#{(conv * 100).round(1)}%)"
+          end
+        end
+        if details_hash[:priority]
+          # Чем больше priority, тем хуже – не добавляем, т.к. это уже учтено в оценке
+        end
+        if details_hash[:turnover_min]
+          deficit = details_hash[:turnover_min][:deficit]
+          if deficit > 0
+            explanation_parts << "недобор минимального оборота (#{(deficit * 100).round(1)}%)"
+          end
+        end
+        if details_hash[:turnover_max]
+          excess = details_hash[:turnover_max][:excess]
+          if excess > 0
+            explanation_parts << "превышение максимального оборота (#{(excess * 100).round(1)}%)"
+          end
+        end
+        if details_hash[:amount_fit]
+          fit = details_hash[:amount_fit][:fit]
+          if fit < 0.5
+            explanation_parts << "сумма далека от центра диапазона (fit=#{fit.round(2)})"
+          end
+        end
+        if details_hash[:current_load]
+          penalty = details_hash[:current_load][:penalty]
+          if penalty > 0.2
+            explanation_parts << "высокая загрузка in-progress (штраф #{penalty.round(2)})"
+          end
+        end
+
+        if explanation_parts.empty?
+          explanation = "оценка #{score.round(6)} против #{selected_score.round(6)} у выбранного"
+        else
+          explanation = "оценка #{score.round(6)} (против #{selected_score.round(6)} у выбранного); причины: " + explanation_parts.join('; ')
+        end
+
         attempts << {
           'provider' => ps,
           'decision' => 'skipped',
-          'reason' => first_reason,
-          'details' => details
-        }
-      elsif ps == selected.payment_system
-        attempts << {
-          'provider' => ps,
-          'decision' => 'selected',
-          'reason' => 'best_by_strategy'
+          'reason' => 'lower_score',
+          'details' => explanation
         }
       else
         attempts << {
           'provider' => ps,
           'decision' => 'skipped',
-          'reason' => 'lower_priority',
-          'details' => "not selected by soft strategy"
+          'reason' => 'unknown',
+          'details' => "not in scored list"
         }
       end
     end
-    attempts
   end
+  attempts
+end
 
   def self.simulate_result(provider)
     conversion = provider.conversion_24h.to_f
