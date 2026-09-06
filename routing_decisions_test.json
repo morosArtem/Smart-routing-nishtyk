@@ -1,0 +1,2792 @@
+[
+  {
+    "operation_id": "op_111",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.149695 (против 0.359202 у выбранного); причины: недобор доли объёма (-31.8%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.3)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.191 против 0.359202 у выбранного"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_112",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.225001 (против 0.332135 у выбранного); причины: недобор доли трафика (-25.0%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.39)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.191 против 0.332135 у выбранного"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_113",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.191 против 0.26018 у выбранного"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_114",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.242257 (против 0.242493 у выбранного); причины: недобор доли объёма (-8.7%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 75000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 75000 not in [500.0, 50000.0]; bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.191 против 0.242493 у выбранного"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_115",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 52000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 52000 not in [500.0, 50000.0]; bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.261408 (против 0.281859 у выбранного); причины: недобор доли трафика (-15.0%); низкая конверсия (67.5%)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.191 против 0.281859 у выбранного"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_116",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.191 против 0.26565 у выбранного"
+      }
+    ],
+    "simulated_result": "expired",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_117",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.207852 (против 0.271013 у выбранного); причины: недобор доли объёма (-8.5%); сумма далека от центра диапазона (fit=0.02)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.191 против 0.271013 у выбранного"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_118",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 80000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 80000 not in [500.0, 50000.0]; bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.191 против 0.283354 у выбранного"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_119",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 900 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 900 not in [1000.0, 100000.0]; bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.139983 (против 0.191 у выбранного); причины: недобор доли объёма (-30.3%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.02)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 900 not in [1000.0, 200000.0]",
+        "details": "amount_out_of_range: 900 not in [1000.0, 200000.0]"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 15
+  },
+  {
+    "operation_id": "op_120",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 150000 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 150000 not in [1000.0, 100000.0]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 150000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 150000 not in [500.0, 50000.0]; daily_limit_exceeded: 2900000.0 + 150000 > 3000000.0"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.160964 (против 0.258566 у выбранного); причины: недобор доли трафика (-10.0%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_121",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 75000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 75000 not in [500.0, 50000.0]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.249315 (против 0.26733 у выбранного); причины: недобор доли трафика (-20.5%); низкая конверсия (67.5%)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.163692 (против 0.26733 у выбранного); причины: недобор доли трафика (-9.1%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_122",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.236069 (против 0.244206 у выбранного); причины: недобор доли трафика (-16.7%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.24)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.165965 (против 0.244206 у выбранного); причины: недобор доли трафика (-8.3%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_123",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 80000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 80000 not in [500.0, 50000.0]; bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.167888 (против 0.273492 у выбранного); причины: недобор доли трафика (-7.7%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_124",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.193588 (против 0.256679 у выбранного); причины: недобор доли объёма (-28.6%); низкая конверсия (47.4%)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.254631 (против 0.256679 у выбранного); причины: недобор доли трафика (-10.7%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.24)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.169537 (против 0.256679 у выбранного); причины: недобор доли трафика (-7.1%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_125",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.27199 (против 0.281579 у выбранного); причины: недобор доли трафика (-8.3%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.44)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.170966 (против 0.281579 у выбранного); причины: недобор доли трафика (-6.7%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_126",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.174374 (против 0.263459 у выбранного); причины: недобор доли объёма (-28.3%); низкая конверсия (47.4%)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.172216 (против 0.263459 у выбранного); причины: недобор доли трафика (-6.3%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_127",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173319 (против 0.282639 у выбранного); причины: недобор доли трафика (-5.9%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "expired",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_128",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.174299 (против 0.286807 у выбранного); причины: недобор доли трафика (-5.6%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_129",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 52000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 52000 not in [500.0, 50000.0]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175177 (против 0.297478 у выбранного); причины: недобор доли трафика (-5.3%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_130",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 95000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 95000 not in [500.0, 50000.0]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175966 (против 0.306421 у выбранного); причины: недобор доли трафика (-5.0%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_131",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 150000 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 150000 not in [1000.0, 100000.0]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 150000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 150000 not in [500.0, 50000.0]; daily_limit_exceeded: 2900000.0 + 150000 > 3000000.0; bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.176681 (против 0.271417 у выбранного); причины: недобор доли трафика (-4.8%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_132",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.233772 (против 0.265072 у выбранного); причины: недобор доли трафика (-11.4%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.02)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.177331 (против 0.265072 у выбранного); причины: недобор доли трафика (-4.5%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_133",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.177924 (против 0.241049 у выбранного); причины: недобор доли трафика (-4.3%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_134",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.234675 (против 0.265126 у выбранного); причины: недобор доли трафика (-12.5%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.11)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.178467 (против 0.265126 у выбранного); причины: недобор доли трафика (-4.2%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_135",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 800 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 800 not in [1000.0, 100000.0]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.151225 (против 0.178967 у выбранного); причины: недобор доли объёма (-26.4%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.01)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 800 not in [1000.0, 200000.0]",
+        "details": "amount_out_of_range: 800 not in [1000.0, 200000.0]"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 15
+  },
+  {
+    "operation_id": "op_136",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.254979 (против 0.292392 у выбранного); причины: недобор доли трафика (-9.6%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.34)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.167862 (против 0.292392 у выбранного); причины: недобор доли трафика (-7.7%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_137",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 180000 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 180000 not in [1000.0, 100000.0]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 180000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 180000 not in [500.0, 50000.0]; daily_limit_exceeded: 2900000.0 + 180000 > 3000000.0"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.168717 (против 0.252041 у выбранного); причины: недобор доли трафика (-7.4%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_138",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 180000 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 180000 not in [1000.0, 100000.0]; bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 180000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 180000 not in [500.0, 50000.0]; daily_limit_exceeded: 2900000.0 + 180000 > 3000000.0; bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.169512 (против 0.25687 у выбранного); причины: недобор доли трафика (-7.1%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_139",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 900 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 900 not in [1000.0, 100000.0]; bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.156193 (против 0.170252 у выбранного); причины: недобор доли объёма (-24.9%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.02)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 900 not in [1000.0, 200000.0]",
+        "details": "amount_out_of_range: 900 not in [1000.0, 200000.0]"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      }
+    ],
+    "simulated_result": "expired",
+    "latency_sec": 15
+  },
+  {
+    "operation_id": "op_140",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175597 (против 0.257852 у выбранного); причины: недобор доли объёма (-24.9%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.4)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.170941 (против 0.257852 у выбранного); причины: недобор доли трафика (-6.7%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_141",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.171004 (против 0.234237 у выбранного); причины: недобор доли объёма (-24.7%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.3)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.171587 (против 0.234237 у выбранного); причины: недобор доли трафика (-6.5%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_142",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.238627 (против 0.271394 у выбранного); причины: недобор доли трафика (-9.4%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.09)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.172192 (против 0.271394 у выбранного); причины: недобор доли трафика (-6.3%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "expired",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_143",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.18636 (против 0.2982 у выбранного); причины: недобор доли объёма (-24.6%); низкая конверсия (47.4%)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.254388 (против 0.2982 у выбранного); причины: недобор доли трафика (-8.3%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.34)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.17276 (против 0.2982 у выбранного); причины: недобор доли трафика (-6.1%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_144",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.241002 (против 0.266668 у выбранного); причины: недобор доли трафика (-7.4%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.01)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173295 (против 0.266668 у выбранного); причины: недобор доли трафика (-5.9%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_145",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175666 (против 0.24781 у выбранного); причины: недобор доли объёма (-24.5%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.38)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173799 (против 0.24781 у выбранного); причины: недобор доли трафика (-5.7%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_146",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 900 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 900 not in [1000.0, 100000.0]; bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 900 not in [1000.0, 200000.0]",
+        "details": "amount_out_of_range: 900 not in [1000.0, 200000.0]"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      }
+    ],
+    "simulated_result": "expired",
+    "latency_sec": 15
+  },
+  {
+    "operation_id": "op_147",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.174726 (против 0.242024 у выбранного); причины: недобор доли трафика (-5.4%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_148",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.185946 (против 0.241581 у выбранного); причины: недобор доли объёма (-24.4%); низкая конверсия (47.4%)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175153 (против 0.241581 у выбранного); причины: недобор доли трафика (-5.3%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_149",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 80000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 80000 not in [500.0, 50000.0]; bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175558 (против 0.268783 у выбранного); причины: недобор доли трафика (-5.1%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_150",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175943 (против 0.242767 у выбранного); причины: недобор доли трафика (-5.0%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_151",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.228557 (против 0.292058 у выбранного); причины: недобор доли трафика (-14.0%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.24)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.176309 (против 0.292058 у выбранного); причины: недобор доли трафика (-4.9%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_152",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.176657 (против 0.226509 у выбранного); причины: недобор доли трафика (-4.8%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_153",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.17699 (против 0.222747 у выбранного); причины: недобор доли трафика (-4.7%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_154",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.177307 (против 0.238515 у выбранного); причины: недобор доли трафика (-4.5%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_155",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 95000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 95000 not in [500.0, 50000.0]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.17761 (против 0.259977 у выбранного); причины: недобор доли трафика (-4.4%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_156",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 150000 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 150000 not in [1000.0, 100000.0]; bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 150000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 150000 not in [500.0, 50000.0]; daily_limit_exceeded: 2900000.0 + 150000 > 3000000.0; bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.177901 (против 0.241191 у выбранного); причины: недобор доли трафика (-4.3%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_157",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.178179 (против 0.212953 у выбранного); причины: недобор доли трафика (-4.3%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_158",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.178445 (против 0.231637 у выбранного); причины: недобор доли трафика (-4.2%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_159",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.1787 (против 0.229926 у выбранного); причины: недобор доли трафика (-4.1%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_160",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 120000 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 120000 not in [1000.0, 100000.0]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 120000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 120000 not in [500.0, 50000.0]; daily_limit_exceeded: 2900000.0 + 120000 > 3000000.0; bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.178946 (против 0.24933 у выбранного); причины: недобор доли трафика (-4.0%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_161",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 150000 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 150000 not in [1000.0, 100000.0]; bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 150000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 150000 not in [500.0, 50000.0]; daily_limit_exceeded: 2900000.0 + 150000 > 3000000.0"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.179182 (против 0.22785 у выбранного); причины: недобор доли трафика (-3.9%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "expired",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_162",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.205611 (против 0.308123 у выбранного); причины: недобор доли объёма (-21.6%); низкая конверсия (47.4%)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.220843 (против 0.308123 у выбранного); причины: недобор доли трафика (-15.4%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.29)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.179409 (против 0.308123 у выбранного); причины: недобор доли трафика (-3.8%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_163",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.179627 (против 0.228383 у выбранного); причины: недобор доли трафика (-3.8%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_164",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 800 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 800 not in [1000.0, 100000.0]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.166462 (против 0.179836 у выбранного); причины: недобор доли объёма (-21.4%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.01)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 800 not in [1000.0, 200000.0]",
+        "details": "amount_out_of_range: 800 not in [1000.0, 200000.0]"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 15
+  },
+  {
+    "operation_id": "op_165",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.174559 (против 0.214423 у выбранного); причины: недобор доли трафика (-5.5%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_166",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 120000 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 120000 not in [1000.0, 100000.0]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 120000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 120000 not in [500.0, 50000.0]; daily_limit_exceeded: 2900000.0 + 120000 > 3000000.0"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.174851 (против 0.250237 у выбранного); причины: недобор доли трафика (-5.4%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_167",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.216141 (против 0.302539 у выбранного); причины: недобор доли трафика (-15.4%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.24)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175134 (против 0.302539 у выбранного); причины: недобор доли трафика (-5.3%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_168",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 52000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 52000 not in [500.0, 50000.0]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.23199 (против 0.321842 у выбранного); причины: недобор доли трафика (-14.7%); низкая конверсия (67.5%)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175407 (против 0.321842 у выбранного); причины: недобор доли трафика (-5.2%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_169",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.2133 (против 0.283793 у выбранного); причины: недобор доли трафика (-14.0%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.09)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.17567 (против 0.283793 у выбранного); причины: недобор доли трафика (-5.1%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_170",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.169777 (против 0.270774 у выбранного); причины: недобор доли объёма (-20.7%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.04)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.211054 (против 0.270774 у выбранного); причины: недобор доли трафика (-13.3%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.01)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175924 (против 0.270774 у выбранного); причины: недобор доли трафика (-5.0%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_171",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.213705 (против 0.273125 у выбранного); причины: недобор доли трафика (-12.7%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.02)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.17617 (против 0.273125 у выбранного); причины: недобор доли трафика (-4.9%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_172",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.218064 (против 0.279 у выбранного); причины: недобор доли трафика (-12.1%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.07)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.176408 (против 0.279 у выбранного); причины: недобор доли трафика (-4.8%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_173",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.191099 (против 0.221902 у выбранного); причины: недобор доли объёма (-20.7%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.46)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.176639 (против 0.221902 у выбранного); причины: недобор доли трафика (-4.8%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_174",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.183124 (против 0.280725 у выбранного); причины: недобор доли объёма (-20.7%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.3)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.221694 (против 0.280725 у выбранного); причины: недобор доли трафика (-10.9%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.07)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.176862 (против 0.280725 у выбранного); причины: недобор доли трафика (-4.7%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_175",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.187235 (против 0.224419 у выбранного); причины: недобор доли объёма (-20.6%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.38)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.177079 (против 0.224419 у выбранного); причины: недобор доли трафика (-4.6%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_176",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 900 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 900 not in [1000.0, 100000.0]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.168938 (против 0.177288 у выбранного); причины: недобор доли объёма (-20.6%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.02)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 900 not in [1000.0, 200000.0]",
+        "details": "amount_out_of_range: 900 not in [1000.0, 200000.0]"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 15
+  },
+  {
+    "operation_id": "op_177",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.172987 (против 0.24375 у выбранного); причины: недобор доли трафика (-6.0%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_178",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 120000 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 120000 not in [1000.0, 100000.0]; bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 120000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 120000 not in [500.0, 50000.0]; daily_limit_exceeded: 2900000.0 + 120000 > 3000000.0; bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173251 (против 0.259509 у выбранного); причины: недобор доли трафика (-5.9%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_179",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.171553 (против 0.214098 у выбранного); причины: недобор доли объёма (-20.1%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.04)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173508 (против 0.214098 у выбранного); причины: недобор доли трафика (-5.8%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_180",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 180000 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 180000 not in [1000.0, 100000.0]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 180000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 180000 not in [500.0, 50000.0]; daily_limit_exceeded: 2900000.0 + 180000 > 3000000.0; bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173757 (против 0.221131 у выбранного); причины: недобор доли трафика (-5.7%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_181",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173063 (против 0.278025 у выбранного); причины: недобор доли объёма (-19.6%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.04)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.20482 (против 0.278025 у выбранного); причины: недобор доли трафика (-13.0%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.01)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.174 (против 0.278025 у выбранного); причины: недобор доли трафика (-5.6%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_182",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.174234 (против 0.206417 у выбранного); причины: недобор доли трафика (-5.6%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_183",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.174463 (против 0.227317 у выбранного); причины: недобор доли трафика (-5.5%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_184",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173413 (против 0.276235 у выбранного); причины: недобор доли объёма (-19.5%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.04)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.204577 (против 0.276235 у выбранного); причины: недобор доли трафика (-12.8%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.01)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.174685 (против 0.276235 у выбранного); причины: недобор доли трафика (-5.4%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_185",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.206856 (против 0.27437 у выбранного); причины: недобор доли трафика (-12.3%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.02)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.174902 (против 0.27437 у выбранного); причины: недобор доли трафика (-5.3%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_186",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 95000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 95000 not in [500.0, 50000.0]; bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175112 (против 0.254585 у выбранного); причины: недобор доли трафика (-5.3%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_187",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.206441 (против 0.277741 у выбранного); причины: недобор доли трафика (-12.7%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.07)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175318 (против 0.277741 у выбранного); причины: недобор доли трафика (-5.2%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_188",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.209965 (против 0.278482 у выбранного); причины: недобор доли трафика (-12.2%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.11)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175518 (против 0.278482 у выбранного); причины: недобор доли трафика (-5.1%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_189",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.201644 (против 0.212982 у выбранного); причины: недобор доли объёма (-19.2%); низкая конверсия (47.4%)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.175713 (против 0.212982 у выбранного); причины: недобор доли трафика (-5.1%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_190",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 900 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 900 not in [1000.0, 100000.0]; bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173278 (против 0.175903 у выбранного); причины: недобор доли объёма (-19.2%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.02)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 900 not in [1000.0, 200000.0]",
+        "details": "amount_out_of_range: 900 not in [1000.0, 200000.0]"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 15
+  },
+  {
+    "operation_id": "op_191",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.187628 (против 0.276847 у выбранного); причины: недобор доли объёма (-19.2%); низкая конверсия (47.4%); сумма далека от центра диапазона (fit=0.3)"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.212313 (против 0.276847 у выбранного); причины: недобор доли трафика (-10.8%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.07)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.172359 (против 0.276847 у выбранного); причины: недобор доли трафика (-6.2%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_192",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 55000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 55000 not in [500.0, 50000.0]; bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.172584 (против 0.237306 у выбранного); причины: недобор доли трафика (-6.1%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_193",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.172806 (против 0.207218 у выбранного); причины: недобор доли трафика (-6.0%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_194",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173021 (против 0.209028 у выбранного); причины: недобор доли трафика (-6.0%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_195",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.228906 (против 0.308675 у выбранного); причины: недобор доли трафика (-10.3%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.39)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173231 (против 0.308675 у выбранного); причины: недобор доли трафика (-5.9%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_196",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173436 (против 0.211367 у выбранного); причины: недобор доли трафика (-5.8%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_197",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.212096 (против 0.273467 у выбранного); причины: недобор доли трафика (-10.6%); низкая конверсия (67.5%); сумма далека от центра диапазона (fit=0.07)"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173637 (против 0.273467 у выбранного); причины: недобор доли трафика (-5.7%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 87
+  },
+  {
+    "operation_id": "op_198",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 52000 not in [500.0, 50000.0]",
+        "details": "amount_out_of_range: 52000 not in [500.0, 50000.0]; bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.173833 (против 0.235486 у выбранного); причины: недобор доли трафика (-5.7%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  },
+  {
+    "operation_id": "op_199",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 900 not in [1000.0, 100000.0]",
+        "details": "amount_out_of_range: 900 not in [1000.0, 100000.0]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range: 900 not in [1000.0, 200000.0]",
+        "details": "amount_out_of_range: 900 not in [1000.0, 200000.0]"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 15
+  },
+  {
+    "operation_id": "op_200",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]",
+        "details": "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_score",
+        "details": "оценка 0.170854 (против 0.22241 у выбранного); причины: недобор доли трафика (-6.7%); недобор доли объёма (-0.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 129
+  }
+]

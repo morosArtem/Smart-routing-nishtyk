@@ -7,7 +7,7 @@ module Config
 
   DATA_DIR = File.join(PROJECT_ROOT, 'data')
   PROVIDERS_PATH = File.join(DATA_DIR, 'providers.json')
-  QUEUE_PATH = File.join(DATA_DIR, 'operations_queue_10.json')
+  QUEUE_PATH = File.join(DATA_DIR, 'operations_queue_90.json')
   HISTORY_PATH = File.join(DATA_DIR, 'operations_history.csv')
 
   OUTPUT_DIR = PROJECT_ROOT

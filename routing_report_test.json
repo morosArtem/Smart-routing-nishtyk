@@ -1,0 +1,75 @@
+{
+  "period": "2026-09-06",
+  "total_operations": 90,
+  "distribution": {
+    "quickpay": {
+      "count": 53,
+      "share_pct": 58.89,
+      "target_pct": 25.0
+    },
+    "vipay": {
+      "count": 29,
+      "share_pct": 32.22,
+      "target_pct": 40.0
+    },
+    "spacepayments": {
+      "count": 8,
+      "share_pct": 8.89,
+      "target_pct": 0.0
+    }
+  },
+  "skip_reasons": {
+    "bank_not_in_list: alfa not in [\"sberbank\", \"tinkoff\", \"vtb\"]": 13,
+    "lower_score": 137,
+    "bank_not_in_list: vtb not in [\"sberbank\", \"alfa\"]": 10,
+    "bank_not_in_list: gazprombank not in [\"sberbank\", \"tinkoff\", \"vtb\"]": 15,
+    "bank_not_in_list: gazprombank not in [\"sberbank\", \"alfa\"]": 11,
+    "amount_out_of_range: 75000 not in [500.0, 50000.0]": 2,
+    "amount_out_of_range: 52000 not in [500.0, 50000.0]": 4,
+    "amount_out_of_range: 80000 not in [500.0, 50000.0]": 3,
+    "amount_out_of_range: 900 not in [1000.0, 100000.0]": 6,
+    "amount_out_of_range: 900 not in [1000.0, 200000.0]": 6,
+    "amount_out_of_range: 150000 not in [1000.0, 100000.0]": 4,
+    "amount_out_of_range: 150000 not in [500.0, 50000.0]": 4,
+    "bank_not_in_list: tinkoff not in [\"sberbank\", \"alfa\"]": 10,
+    "bank_not_in_list: raiffeisen not in [\"sberbank\", \"tinkoff\", \"vtb\"]": 13,
+    "bank_not_in_list: raiffeisen not in [\"sberbank\", \"alfa\"]": 12,
+    "amount_out_of_range: 95000 not in [500.0, 50000.0]": 3,
+    "amount_out_of_range: 800 not in [1000.0, 100000.0]": 2,
+    "amount_out_of_range: 800 not in [1000.0, 200000.0]": 2,
+    "amount_out_of_range: 180000 not in [1000.0, 100000.0]": 3,
+    "amount_out_of_range: 180000 not in [500.0, 50000.0]": 3,
+    "amount_out_of_range: 120000 not in [1000.0, 100000.0]": 3,
+    "amount_out_of_range: 120000 not in [500.0, 50000.0]": 3,
+    "amount_out_of_range: 55000 not in [500.0, 50000.0]": 1
+  },
+  "projected_daily_utilization": {
+    "vipay": {
+      "used": 3575000.0,
+      "limit": 5000000.0,
+      "utilization_pct": 71.5
+    },
+    "payflow": {
+      "used": 2900000.0,
+      "limit": 3000000.0,
+      "utilization_pct": 96.67
+    },
+    "quickpay": {
+      "used": 3123500.0,
+      "limit": 8000000.0,
+      "utilization_pct": 39.04
+    },
+    "spacepayments": {
+      "used": 5200.0,
+      "limit": null,
+      "utilization_pct": null
+    }
+  },
+  "recommendations": [
+    "quickpay получает 40.0% трафика при цели 25.0% — рекомендуется снизить traffic_percentage",
+    "quickpay имеет низкую конверсию (67.5%) — рассмотрите снижение трафика или улучшение качества",
+    "payflow получает 19.0% трафика при цели 35.0% — рекомендуется повысить traffic_percentage",
+    "payflow имеет низкую конверсию (47.4%) — рассмотрите снижение трафика или улучшение качества",
+    "payflow близок к дневному лимиту (2900000.0/3000000.0) — снизить трафик или увеличить лимит"
+  ]
+}

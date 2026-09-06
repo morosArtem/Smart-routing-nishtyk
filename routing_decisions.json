@@ -1,0 +1,312 @@
+[
+  {
+    "operation_id": "op_101",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 29
+  },
+  {
+    "operation_id": "op_102",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank_not_in_list"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 15
+  },
+  {
+    "operation_id": "op_103",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range",
+        "details": "amount_out_of_range"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range",
+        "details": "amount_out_of_range, daily_limit_exceeded"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 29
+  },
+  {
+    "operation_id": "op_104",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank_not_in_list"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank_not_in_list"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 15
+  },
+  {
+    "operation_id": "op_105",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank_not_in_list"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 38
+  },
+  {
+    "operation_id": "op_106",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_out_of_range",
+        "details": "amount_out_of_range"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 38
+  },
+  {
+    "operation_id": "op_107",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range",
+        "details": "amount_out_of_range"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_out_of_range",
+        "details": "amount_out_of_range"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 15
+  },
+  {
+    "operation_id": "op_108",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank_not_in_list"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank_not_in_list"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      }
+    ],
+    "simulated_result": "rejected",
+    "latency_sec": 29
+  },
+  {
+    "operation_id": "op_109",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank_not_in_list"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 38
+  },
+  {
+    "operation_id": "op_110",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank_not_in_list"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_by_strategy"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "skipped",
+        "reason": "lower_priority",
+        "details": "not selected by soft strategy"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 29
+  }
+]
